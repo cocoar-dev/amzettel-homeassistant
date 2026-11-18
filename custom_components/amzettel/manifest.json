@@ -1,0 +1,13 @@
+{
+  "domain": "amzettel",
+  "name": "amZettel",
+  "codeowners": ["@windischb"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/cocoar-dev/amzettel-homeassistant",
+  "integration_type": "service",
+  "iot_class": "cloud_push",
+  "issue_tracker": "https://github.com/cocoar-dev/amzettel-homeassistant/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

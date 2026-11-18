@@ -1,0 +1,15 @@
+amZettel for Home Assistant
+Copyright (c) 2026 COCOAR e.U.
+
+The integration source code, tests and documentation are licensed under the
+MIT License; see LICENSE. You are welcome to use, modify and redistribute
+them under those terms.
+
+The amZettel brand assets in custom_components/amzettel/brand/ are not covered
+by the MIT License. Their separate terms, identified as
+LicenseRef-amZettel-Brand-Assets, are in TRADEMARK.md. Those terms also govern
+the use of the amZettel name and logos visible in documentation screenshots.
+
+This license grant does not cover the amZettel app, backend or hosted service.
+Third-party software retains its own licenses; this notice does not relicense
+Home Assistant or the integration's dependencies.

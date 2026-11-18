@@ -1,0 +1,20 @@
+[project]
+name = "amzettel-homeassistant"
+version = "0.1.0"
+description = "Home Assistant custom integration for amZettel"
+requires-python = ">=3.14"
+readme = "README.md"
+# Code and documentation are MIT; bundled brand assets have separate terms.
+license = "MIT AND LicenseRef-amZettel-Brand-Assets"
+license-files = ["LICENSE", "NOTICE", "TRADEMARK.md"]
+authors = [{ name = "COCOAR e.U." }]
+maintainers = [{ name = "Bernhard Windisch", email = "bwi@cocoar.dev" }]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+cache_dir = ".local/cache/pytest"
+
+[tool.ruff]
+cache-dir = ".local/cache/ruff"

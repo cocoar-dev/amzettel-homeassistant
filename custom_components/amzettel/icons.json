@@ -1,0 +1,10 @@
+{
+  "services": {
+    "add_event": { "service": "mdi:calendar-plus" },
+    "sync_events": { "service": "mdi:calendar-sync" },
+    "add_item": { "service": "mdi:playlist-plus" },
+    "get_events": { "service": "mdi:calendar-search" },
+    "get_meals": { "service": "mdi:silverware-fork-knife" },
+    "get_items": { "service": "mdi:format-list-checks" }
+  }
+}

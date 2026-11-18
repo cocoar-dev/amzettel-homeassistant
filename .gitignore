@@ -1,0 +1,12 @@
+# Local-only workspace files and CodeAlta's fixed-location work items.
+/.local/
+/.alta
+
+# Also keep conventional tool output out if a tool uses its defaults.
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/

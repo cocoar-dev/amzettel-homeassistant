@@ -1,0 +1,345 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "amZettel verbinden",
+        "description": "Gib deinen amZettel-Server an und wähle, was Home Assistant sehen und ändern darf. Im nächsten Schritt bestätigst du die Verbindung im Browser.",
+        "data": {
+          "server": "Server",
+          "lists_read": "Zettel lesen",
+          "lists_write": "Zettel ändern",
+          "calendar_read": "Kalender lesen",
+          "calendar_write": "Kalender ändern",
+          "mealplans_read": "Essenspläne lesen"
+        },
+        "data_description": {
+          "server": "Verwende den offiziellen amZettel-Server ({default_server}).",
+          "calendar_write": "Termine anlegen, ändern und löschen braucht amZettel Premium."
+        }
+      },
+      "reauth_confirm": {
+        "title": "amZettel neu verbinden",
+        "description": "Die Verbindung zu {server} ist beendet (gesperrt oder überall abgemeldet). Bestätige dasselbe amZettel-Konto noch einmal im Browser."
+      },
+      "select": {
+        "title": "Was soll erscheinen?",
+        "description": "Wähle die Zettel, Kalender und Essenspläne, die Home Assistant zeigt. Abgewählte erscheinen nicht in Home Assistant; in amZettel bleibt alles unverändert.",
+        "data": {
+          "lists": "Zettel",
+          "calendars": "Kalender",
+          "meal_plans": "Essenspläne",
+          "auto_add_new": "Neue Zettel/Kalender/Essenspläne automatisch übernehmen",
+          "category_calendars": "Eigener Kalender für diese Kategorien"
+        },
+        "data_description": {
+          "lists": "Einkaufszettel, Checklisten und Aufgabenlisten.",
+          "auto_add_new": "Was später in amZettel dazukommt, erscheint ohne Nachfrage.",
+          "category_calendars": "Termine dieser Kategorien erscheinen dann nur in ihrem eigenen Kalender."
+        }
+      }
+    },
+    "progress": {
+      "wait_for_device": "Öffne {url} und bestätige den Code **{user_code}** mit deinem amZettel-Konto. Dieser Schritt geht von selbst weiter, sobald du bestätigt hast."
+    },
+    "error": {
+      "cannot_connect": "Der Server oder sein Anmeldedienst ist nicht erreichbar.",
+      "unsupported_server": "Nur der offizielle amZettel-Server (app.amzettel.at) wird unterstützt.",
+      "feed_unavailable": "Die REST/SSE-v1-Schnittstelle ist auf diesem Server nicht verfügbar.",
+      "feed_snapshot_limit": "Für dieses Konto sind zu viele Snapshots aktiv. Versuche es erneut, sobald das Limit wieder frei ist.",
+      "device_flow_failed": "Die Anmeldung konnte nicht gestartet werden.",
+      "no_area": "Wähle mindestens einen Bereich."
+    },
+    "abort": {
+      "unsupported_server": "Nur der offizielle amZettel-Server (app.amzettel.at) wird unterstützt.",
+      "already_configured": "Dieses amZettel-Konto ist schon verbunden.",
+      "access_denied": "Die Verbindung wurde im Browser abgelehnt.",
+      "expired_token": "Der Code ist abgelaufen, bevor er bestätigt wurde. Bitte neu starten.",
+      "cannot_connect": "Der Server oder sein Anmeldedienst ist nicht erreichbar.",
+      "device_flow_failed": "Die Anmeldung konnte nicht abgeschlossen werden.",
+      "wrong_account": "Du hast dich mit einem anderen amZettel-Konto angemeldet. Bitte nimm das Konto, zu dem dieser Eintrag gehört.",
+      "reauth_successful": "Die Verbindung wurde erneuert.",
+      "token_rejected": "amZettel hat die Anmeldung nicht angenommen. Die Verbindung konnte nicht eingerichtet werden."
+    }
+  },
+  "exceptions": {
+    "unsupported_server": {
+      "message": "Nur der offizielle amZettel-Server (app.amzettel.at) wird unterstützt."
+    },
+    "feed_unavailable": {
+      "message": "Die REST/SSE-v1-Schnittstelle ist auf diesem Server nicht verfügbar."
+    },
+    "premium_required": {
+      "message": "Das zu ändern braucht amZettel Premium."
+    },
+    "not_permitted": {
+      "message": "Diese Verbindung darf das nicht ändern. Sieh unter „Verbundene Systeme“ in amZettel nach."
+    },
+    "item_gone": {
+      "message": "Den Eintrag gibt es in amZettel nicht mehr."
+    },
+    "list_gone": {
+      "message": "Den Zettel gibt es in amZettel nicht mehr."
+    },
+    "auth_failed": {
+      "message": "Die Verbindung zu amZettel ist beendet. Bitte neu verbinden."
+    },
+    "write_conflict": {
+      "message": "Der Stand in amZettel hat sich inzwischen geändert. Prüfe ihn vor einem neuen Versuch."
+    },
+    "purchase_readonly": {
+      "message": "Ein gekaufter Eintrag kann nur zurück auf den Zettel, nicht geändert werden."
+    },
+    "purchase_not_deletable": {
+      "message": "Gekaufte Einträge lassen sich nicht löschen: sie bleiben in der Kaufhistorie von amZettel. Auf einem Einkaufszettel sind genau sie die erledigten Einträge, es gibt also nichts zu entfernen. Zurück auf den Zettel holst du einen, indem du ihn auf „nicht erledigt“ setzt."
+    },
+    "api_error": {
+      "message": "amZettel hat die Änderung abgelehnt: {error}"
+    },
+    "refused": {
+      "message": "amZettel hat das abgelehnt: {reason}"
+    },
+    "calendar_gone": {
+      "message": "Den Kalender gibt es in amZettel nicht mehr."
+    },
+    "event_gone": {
+      "message": "Den Termin gibt es in amZettel nicht mehr."
+    },
+    "meal_plan_gone": {
+      "message": "Den Essensplan gibt es in amZettel nicht mehr."
+    },
+    "series_occurrence": {
+      "message": "Einzelne Termine einer Serie lassen sich nur in der amZettel-App ändern oder löschen. In Home Assistant geht nur die ganze Serie („Diesen und alle folgenden“ beim ersten Termin)."
+    },
+    "series_following": {
+      "message": "„Diesen und alle folgenden“ ab einem späteren Termin geht nur in der amZettel-App. In Home Assistant lässt sich nur die ganze Serie ändern oder löschen (ab ihrem ersten Termin)."
+    },
+    "event_summary_required": {
+      "message": "Der Termin braucht einen Titel."
+    },
+    "event_mixed_bounds": {
+      "message": "Beginn und Ende müssen beide Daten (ganztägig) oder beide Uhrzeiten sein."
+    },
+    "event_end_before_start": {
+      "message": "Das Ende liegt vor dem Beginn."
+    },
+    "event_start_required": {
+      "message": "Gib einen Beginn an: start_date_time, oder start_date für einen ganztägigen Termin."
+    },
+    "unknown_category": {
+      "message": "Der Kalender hat keine Kategorie „{category}“. Kategorien: {categories}."
+    },
+    "invalid_time": {
+      "message": "„{value}“ ist weder ein Datum noch eine Uhrzeit."
+    },
+    "period_end_before_start": {
+      "message": "Das Ende des Zeitraums liegt vor seinem Beginn."
+    },
+    "not_an_event_calendar": {
+      "message": "{entity_id} ist kein amZettel-Kalender mit Terminen (Essenspläne sind nur lesbar)."
+    },
+    "not_a_meal_plan": {
+      "message": "{entity_id} ist kein amZettel-Essensplan."
+    },
+    "not_a_list": {
+      "message": "{entity_id} ist kein amZettel-Zettel."
+    },
+    "calendar_write_missing": {
+      "message": "Diese Verbindung darf keine Kalender ändern. Entferne die Integration und füge sie mit „Kalender ändern“ neu hinzu."
+    },
+    "lists_write_missing": {
+      "message": "Diese Verbindung darf keine Zettel ändern. Entferne die Integration und füge sie mit „Zettel ändern“ neu hinzu."
+    },
+    "category_calendar_category": {
+      "message": "Ein Kategorie-Kalender nimmt nur Termine seiner eigenen Kategorie."
+    },
+    "sync_duplicate_external_id": {
+      "message": "Jeder Termin eines Abgleichs braucht eine eigene external_id."
+    },
+    "sync_empty": {
+      "message": "Keine Termine geliefert. Das würde alle Termine dieser Quelle im Zeitraum entfernen; wenn das gewollt ist, setze allow_empty."
+    },
+    "refresh_failed": {
+      "message": "amZettel war für den Abgleich mit dem aktuellen Stand nicht erreichbar, deshalb wurde nichts geändert: {error}"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Was soll erscheinen?",
+        "description": "Angemeldetes Konto: {account}\nServer: {server}\n\nWähle die Zettel, Kalender und Essenspläne, die Home Assistant zeigt. Abgewählte erscheinen nicht in Home Assistant; in amZettel bleibt alles unverändert. Welche Bereiche Home Assistant lesen oder ändern darf, wird bei der Anmeldung festgelegt: dafür die Integration entfernen und neu hinzufügen.",
+        "data": {
+          "lists": "Zettel",
+          "calendars": "Kalender",
+          "meal_plans": "Essenspläne",
+          "auto_add_new": "Neue Zettel/Kalender/Essenspläne automatisch übernehmen",
+          "category_calendars": "Eigener Kalender für diese Kategorien"
+        },
+        "data_description": {
+          "lists": "Einkaufszettel, Checklisten und Aufgabenlisten.",
+          "auto_add_new": "Was später in amZettel dazukommt, erscheint ohne Nachfrage.",
+          "category_calendars": "Termine dieser Kategorien erscheinen dann nur in ihrem eigenen Kalender."
+        }
+      }
+    },
+    "abort": {
+      "not_loaded": "amZettel ist gerade nicht verbunden. Bitte erneut versuchen, sobald die Integration geladen ist.",
+      "cannot_connect": "amZettel ist gerade nicht erreichbar. Bitte später erneut versuchen."
+    }
+  },
+  "issues": {
+    "write_premium_required_calendar": {
+      "title": "Kalender brauchen amZettel Premium",
+      "description": "Home Assistant wollte einen Kalender von {account} ändern, amZettel hat abgelehnt: Kalender aus verbundenen Systemen zu ändern braucht amZettel Premium. Lesen geht weiter. Die Meldung verschwindet nach der nächsten erfolgreichen Änderung eines Kalenders."
+    },
+    "write_premium_required_lists": {
+      "title": "Zettel brauchen amZettel Premium",
+      "description": "Home Assistant wollte einen Zettel von {account} ändern, amZettel hat abgelehnt: das braucht amZettel Premium. Die Meldung verschwindet nach der nächsten erfolgreichen Änderung eines Zettels."
+    },
+    "write_not_permitted_calendar": {
+      "title": "Kalender ändern ist nicht erlaubt",
+      "description": "amZettel erlaubt Home Assistant nicht, Kalender von {account} zu ändern. Erlaube es in amZettel unter Profil → Verbundene Systeme. Die Meldung verschwindet nach der nächsten erfolgreichen Änderung eines Kalenders."
+    },
+    "write_not_permitted_lists": {
+      "title": "Zettel ändern ist nicht erlaubt",
+      "description": "amZettel erlaubt Home Assistant nicht, Zettel von {account} zu ändern. Erlaube es in amZettel unter Profil → Verbundene Systeme. Die Meldung verschwindet nach der nächsten erfolgreichen Änderung eines Zettels."
+    }
+  },
+  "services": {
+    "add_event": {
+      "name": "Termin eintragen",
+      "description": "Trägt einen Termin in einen amZettel-Kalender ein. Mit externer ID ist das wiederholbar: derselbe Aufruf ändert den Termin nur, wo er abweicht.",
+      "fields": {
+        "summary": {
+          "name": "Titel",
+          "description": "Titel des Termins."
+        },
+        "start_date_time": {
+          "name": "Beginn",
+          "description": "Beginn eines Termins mit Uhrzeit."
+        },
+        "end_date_time": {
+          "name": "Ende",
+          "description": "Ende eines Termins mit Uhrzeit (optional: ohne Ende ein Zeitpunkt)."
+        },
+        "time_zone": {
+          "name": "Zeitzone",
+          "description": "Optionale IANA-Zone, z. B. Europe/Vienna oder UTC. Ohne Offset gelten Beginn/Ende als Uhrzeiten dieser Zone; mit Offset wird der Zeitpunkt in diese Zone umgerechnet. Ohne Angabe gilt die HA-Zeitzone. Ganztägige Daten bleiben unverändert."
+        },
+        "start_date": {
+          "name": "Erster Tag",
+          "description": "Erster Tag eines ganztägigen Termins."
+        },
+        "end_date": {
+          "name": "Tag danach",
+          "description": "Der Tag NACH dem letzten Tag, wie bei calendar.create_event (optional: ein Tag)."
+        },
+        "category": {
+          "name": "Kategorie",
+          "description": "Kategorie des Kalenders, per Name oder ID. Ohne Angabe bleibt die Kategorie, wie sie ist."
+        },
+        "description": {
+          "name": "Beschreibung",
+          "description": "Notiz des Termins. Ohne Angabe bleibt die Notiz, wie sie ist."
+        },
+        "external_id": {
+          "name": "Externe ID",
+          "description": "Deine eigene, gleichbleibende ID (z. B. der Quelle). Dieselbe ID meint immer denselben Termin."
+        }
+      }
+    },
+    "sync_events": {
+      "name": "Termine abgleichen",
+      "description": "Gleicht die Termine einer Quelle in einem Zeitraum mit der gelieferten Liste ab: legt neue an, ändert abweichende und entfernt Termine DIESER Quelle im Zeitraum, die nicht mehr geliefert werden. Andere Termine bleiben immer unberührt.",
+      "fields": {
+        "source": {
+          "name": "Quelle",
+          "description": "Name der Quelle, z. B. „muell“. Termine verschiedener Quellen vermischen sich nie."
+        },
+        "events": {
+          "name": "Termine",
+          "description": "Liste der Termine, je mit external_id, summary, start und optional end, description, category. start/end wie bei calendar.get_events: ein Datum (ganztägig, Ende = Tag danach) oder Datum mit Uhrzeit."
+        },
+        "start": {
+          "name": "Zeitraum ab",
+          "description": "Datum oder Datum mit Uhrzeit. Entfernt werden nur Termine der Quelle, die im Zeitraum beginnen."
+        },
+        "end": {
+          "name": "Zeitraum bis",
+          "description": "Datum (zählt ganz) oder Datum mit Uhrzeit."
+        },
+        "allow_empty": {
+          "name": "Leere Liste erlauben",
+          "description": "Eine leere Liste entfernt alle Termine der Quelle im Zeitraum. Standardmäßig aus, weil eine kurz nicht erreichbare Quelle oft nichts liefert."
+        }
+      }
+    },
+    "add_item": {
+      "name": "Eintrag hinzufügen",
+      "description": "Fügt einem amZettel-Zettel einen Eintrag hinzu, mit Menge, Einheit, Kategorie und Notiz.",
+      "fields": {
+        "name": {
+          "name": "Name",
+          "description": "Was hinzukommt, z. B. „Milch“."
+        },
+        "quantity": {
+          "name": "Menge",
+          "description": "Menge (Standard 1). Auf einem Einkaufszettel rechnet amZettel sie zu einem offenen Eintrag gleichen Namens dazu."
+        },
+        "unit": {
+          "name": "Einheit",
+          "description": "z. B. „L“, „g“, „Stk“."
+        },
+        "category": {
+          "name": "Kategorie",
+          "description": "Kategorie des Eintrags (Einkaufszettel: die Kategorien des Zettels)."
+        },
+        "note": {
+          "name": "Notiz",
+          "description": "Notiz zum Eintrag."
+        }
+      }
+    },
+    "get_events": {
+      "name": "Termine abfragen",
+      "description": "Liefert die Termine eines amZettel-Kalenders in einem Zeitraum als Daten, Serien aufgelöst.",
+      "fields": {
+        "start": {
+          "name": "Beginn",
+          "description": "Datum oder Datum mit Uhrzeit (Standard: jetzt)."
+        },
+        "end": {
+          "name": "Ende",
+          "description": "Datum (zählt ganz) oder Datum mit Uhrzeit (Standard: sieben Tage nach dem Beginn)."
+        },
+        "category": {
+          "name": "Kategorie",
+          "description": "Nur Termine dieser Kategorie (Name oder ID)."
+        }
+      }
+    },
+    "get_meals": {
+      "name": "Essen abfragen",
+      "description": "Liefert das Essen eines amZettel-Essensplans in einem Zeitraum als Daten.",
+      "fields": {
+        "start": {
+          "name": "Beginn",
+          "description": "Datum oder Datum mit Uhrzeit (Standard: jetzt)."
+        },
+        "end": {
+          "name": "Ende",
+          "description": "Datum (zählt ganz) oder Datum mit Uhrzeit (Standard: sieben Tage nach dem Beginn)."
+        }
+      }
+    },
+    "get_items": {
+      "name": "Einträge abfragen",
+      "description": "Liefert die Einträge eines amZettel-Zettels als Daten.",
+      "fields": {
+        "include_completed": {
+          "name": "Auch erledigte",
+          "description": "Auch erledigte Einträge (Einkaufszettel: was zuletzt gekauft wurde)."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,151 @@
+add_event:
+  target:
+    entity:
+      integration: amzettel
+      domain: calendar
+  fields:
+    summary:
+      required: true
+      example: "Gelbe Tonne"
+      selector:
+        text:
+    start_date_time:
+      example: "2026-11-20 07:00:00"
+      selector:
+        datetime:
+    end_date_time:
+      example: "2026-11-20 07:30:00"
+      selector:
+        datetime:
+    time_zone:
+      example: "Europe/Vienna"
+      selector:
+        text:
+    start_date:
+      example: "2026-11-20"
+      selector:
+        date:
+    end_date:
+      example: "2026-11-21"
+      selector:
+        date:
+    category:
+      example: "Müll"
+      selector:
+        text:
+    description:
+      selector:
+        text:
+          multiline: true
+    external_id:
+      example: "gelbe-tonne-2026-11-20"
+      selector:
+        text:
+
+sync_events:
+  target:
+    entity:
+      integration: amzettel
+      domain: calendar
+  fields:
+    source:
+      required: true
+      example: "muell"
+      selector:
+        text:
+    events:
+      required: true
+      example: '[{"external_id": "gelb-2026-11-20", "summary": "Gelbe Tonne", "start": "2026-11-20", "end": "2026-11-21"}]'
+      selector:
+        object:
+    start:
+      required: true
+      example: "2026-11-01"
+      selector:
+        text:
+    end:
+      required: true
+      example: "2027-01-31"
+      selector:
+        text:
+    allow_empty:
+      default: false
+      selector:
+        boolean:
+
+add_item:
+  target:
+    entity:
+      integration: amzettel
+      domain: todo
+  fields:
+    name:
+      required: true
+      example: "Milch"
+      selector:
+        text:
+    quantity:
+      example: 2
+      selector:
+        number:
+          min: 0.001
+          max: 100000
+          step: any
+          mode: box
+    unit:
+      example: "L"
+      selector:
+        text:
+    category:
+      example: "Milchprodukte"
+      selector:
+        text:
+    note:
+      selector:
+        text:
+          multiline: true
+
+get_events:
+  target:
+    entity:
+      integration: amzettel
+      domain: calendar
+  fields:
+    start:
+      example: "2026-11-14"
+      selector:
+        text:
+    end:
+      example: "2026-11-21"
+      selector:
+        text:
+    category:
+      example: "Müll"
+      selector:
+        text:
+
+get_meals:
+  target:
+    entity:
+      integration: amzettel
+      domain: calendar
+  fields:
+    start:
+      example: "2026-11-14"
+      selector:
+        text:
+    end:
+      example: "2026-11-21"
+      selector:
+        text:
+
+get_items:
+  target:
+    entity:
+      integration: amzettel
+      domain: todo
+  fields:
+    include_completed:
+      default: false
+      selector:
+        boolean:

@@ -1,0 +1,345 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect amZettel",
+        "description": "Enter your amZettel server and choose what Home Assistant may see and change. You confirm the connection in your browser on the next step.",
+        "data": {
+          "server": "Server",
+          "lists_read": "Read lists",
+          "lists_write": "Change lists",
+          "calendar_read": "Read calendars",
+          "calendar_write": "Change calendars",
+          "mealplans_read": "Read meal plans"
+        },
+        "data_description": {
+          "server": "Use the official amZettel server ({default_server}).",
+          "calendar_write": "Creating, changing and deleting events needs amZettel Premium."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Reconnect amZettel",
+        "description": "The connection to {server} has ended (revoked, or signed out everywhere). Confirm the same amZettel account again in your browser."
+      },
+      "select": {
+        "title": "What should appear?",
+        "description": "Choose the lists, calendars and meal plans Home Assistant shows. Deselected ones do not appear in Home Assistant; in amZettel everything stays as it is.",
+        "data": {
+          "lists": "Lists",
+          "calendars": "Calendars",
+          "meal_plans": "Meal plans",
+          "auto_add_new": "Add new lists, calendars and meal plans automatically",
+          "category_calendars": "Own calendar for these categories"
+        },
+        "data_description": {
+          "lists": "Shopping lists, checklists and to-do lists.",
+          "auto_add_new": "Ones created later in amZettel appear without asking.",
+          "category_calendars": "Events of these categories then appear only in their own calendar."
+        }
+      }
+    },
+    "progress": {
+      "wait_for_device": "Open {url} and confirm the code **{user_code}** with your amZettel account. This step finishes by itself once you have confirmed."
+    },
+    "error": {
+      "cannot_connect": "The server or its sign-in service could not be reached.",
+      "unsupported_server": "Only the official amZettel server (app.amzettel.at) is supported.",
+      "feed_unavailable": "The REST/SSE v1 API is not available on this server.",
+      "feed_snapshot_limit": "amZettel has too many active snapshots for this account. Try again after the snapshot limit clears.",
+      "device_flow_failed": "The sign-in could not be started.",
+      "no_area": "Choose at least one area."
+    },
+    "abort": {
+      "unsupported_server": "Only the official amZettel server (app.amzettel.at) is supported.",
+      "already_configured": "This amZettel account is already connected.",
+      "access_denied": "The connection was declined in the browser.",
+      "expired_token": "The code expired before it was confirmed. Please start again.",
+      "cannot_connect": "The server or its sign-in service could not be reached.",
+      "device_flow_failed": "The sign-in could not be completed.",
+      "wrong_account": "You signed in with a different amZettel account. Please use the account this entry belongs to.",
+      "reauth_successful": "The connection has been renewed.",
+      "token_rejected": "amZettel did not accept the sign-in. The connection could not be set up."
+    }
+  },
+  "exceptions": {
+    "unsupported_server": {
+      "message": "Only the official amZettel server (app.amzettel.at) is supported."
+    },
+    "feed_unavailable": {
+      "message": "The REST/SSE v1 API is not available on this server."
+    },
+    "premium_required": {
+      "message": "Changing this needs amZettel Premium."
+    },
+    "not_permitted": {
+      "message": "This connection may not change this. Check \"Connected systems\" in amZettel."
+    },
+    "item_gone": {
+      "message": "The entry no longer exists in amZettel."
+    },
+    "list_gone": {
+      "message": "The list no longer exists in amZettel."
+    },
+    "auth_failed": {
+      "message": "The connection to amZettel has ended. Please reconnect."
+    },
+    "write_conflict": {
+      "message": "amZettel changed in the meantime. Check the current state before trying again."
+    },
+    "purchase_readonly": {
+      "message": "A bought item can only be put back on the list, not edited."
+    },
+    "purchase_not_deletable": {
+      "message": "Bought items cannot be deleted: they stay in amZettel's purchase history. On a shopping list the completed entries are exactly those, so there is nothing to remove. To put one back on the list, mark it as not completed."
+    },
+    "api_error": {
+      "message": "amZettel refused the change: {error}"
+    },
+    "refused": {
+      "message": "amZettel refused this: {reason}"
+    },
+    "calendar_gone": {
+      "message": "The calendar no longer exists in amZettel."
+    },
+    "event_gone": {
+      "message": "The event no longer exists in amZettel."
+    },
+    "meal_plan_gone": {
+      "message": "The meal plan no longer exists in amZettel."
+    },
+    "series_occurrence": {
+      "message": "Single occurrences of a series can only be changed or deleted in the amZettel app. In Home Assistant, choose the whole series (\"this and all future events\" on its first occurrence)."
+    },
+    "series_following": {
+      "message": "\"This and all future events\" from a later occurrence can only be done in the amZettel app. In Home Assistant only the whole series can be changed or deleted (from its first occurrence)."
+    },
+    "event_summary_required": {
+      "message": "The event needs a title."
+    },
+    "event_mixed_bounds": {
+      "message": "Start and end must both be dates (all-day) or both be times."
+    },
+    "event_end_before_start": {
+      "message": "The end lies before the start."
+    },
+    "event_start_required": {
+      "message": "Give a start: start_date_time, or start_date for an all-day event."
+    },
+    "unknown_category": {
+      "message": "The calendar has no category \"{category}\". Categories: {categories}."
+    },
+    "invalid_time": {
+      "message": "\"{value}\" is neither a date nor a time."
+    },
+    "period_end_before_start": {
+      "message": "The end of the period lies before its start."
+    },
+    "not_an_event_calendar": {
+      "message": "{entity_id} is not an amZettel event calendar (meal plans are read-only)."
+    },
+    "not_a_meal_plan": {
+      "message": "{entity_id} is not an amZettel meal plan."
+    },
+    "not_a_list": {
+      "message": "{entity_id} is not an amZettel list."
+    },
+    "calendar_write_missing": {
+      "message": "This connection may not change calendars. Remove the integration and add it again with \"Change calendars\"."
+    },
+    "lists_write_missing": {
+      "message": "This connection may not change lists. Remove the integration and add it again with \"Change lists\"."
+    },
+    "category_calendar_category": {
+      "message": "A category calendar only takes events of its own category."
+    },
+    "sync_duplicate_external_id": {
+      "message": "Every event of a sync needs its own external_id."
+    },
+    "sync_empty": {
+      "message": "No events delivered. That would remove all events of this source in the period; if that is intended, set allow_empty."
+    },
+    "refresh_failed": {
+      "message": "amZettel could not be reached to check the current state, so nothing was changed: {error}"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "What should appear?",
+        "description": "Signed-in account: {account}\nServer: {server}\n\nChoose the lists, calendars and meal plans Home Assistant shows. Deselected ones do not appear in Home Assistant; in amZettel everything stays as it is. Which areas Home Assistant may read or change is set at sign-in: to change them, remove the integration and add it again.",
+        "data": {
+          "lists": "Lists",
+          "calendars": "Calendars",
+          "meal_plans": "Meal plans",
+          "auto_add_new": "Add new lists, calendars and meal plans automatically",
+          "category_calendars": "Own calendar for these categories"
+        },
+        "data_description": {
+          "lists": "Shopping lists, checklists and to-do lists.",
+          "auto_add_new": "Ones created later in amZettel appear without asking.",
+          "category_calendars": "Events of these categories then appear only in their own calendar."
+        }
+      }
+    },
+    "abort": {
+      "not_loaded": "amZettel is not connected right now. Try again once the integration is loaded.",
+      "cannot_connect": "amZettel could not be reached. Try again later."
+    }
+  },
+  "issues": {
+    "write_premium_required_calendar": {
+      "title": "Calendars need amZettel Premium",
+      "description": "Home Assistant tried to change a calendar of {account}, and amZettel refused: changing calendars from connected systems needs amZettel Premium. Reading keeps working. This message disappears after the next successful change of a calendar."
+    },
+    "write_premium_required_lists": {
+      "title": "Lists need amZettel Premium",
+      "description": "Home Assistant tried to change a list of {account}, and amZettel refused: this needs amZettel Premium. This message disappears after the next successful change of a list."
+    },
+    "write_not_permitted_calendar": {
+      "title": "Changing calendars is not allowed",
+      "description": "amZettel does not let Home Assistant change calendars of {account}. Allow it in amZettel under Profile → Connected systems. This message disappears after the next successful change of a calendar."
+    },
+    "write_not_permitted_lists": {
+      "title": "Changing lists is not allowed",
+      "description": "amZettel does not let Home Assistant change lists of {account}. Allow it in amZettel under Profile → Connected systems. This message disappears after the next successful change of a list."
+    }
+  },
+  "services": {
+    "add_event": {
+      "name": "Add event",
+      "description": "Adds an event to an amZettel calendar. With an external ID it is idempotent: calling again with the same ID changes the event only where it differs.",
+      "fields": {
+        "summary": {
+          "name": "Title",
+          "description": "Title of the event."
+        },
+        "start_date_time": {
+          "name": "Start",
+          "description": "Start of a timed event."
+        },
+        "end_date_time": {
+          "name": "End",
+          "description": "End of a timed event (optional: without it the event is a point in time)."
+        },
+        "time_zone": {
+          "name": "Time zone",
+          "description": "Optional IANA zone, e.g. Europe/Vienna or UTC. Without an offset, start/end are clock times in this zone; with an offset, the instant is converted to this zone. Omit to use Home Assistant's configured zone. All-day dates are unchanged."
+        },
+        "start_date": {
+          "name": "Start date",
+          "description": "First day of an all-day event."
+        },
+        "end_date": {
+          "name": "End date",
+          "description": "The day AFTER the last day, as in calendar.create_event (optional: one day)."
+        },
+        "category": {
+          "name": "Category",
+          "description": "Category of the calendar, by name or ID. Without it the category stays as it is."
+        },
+        "description": {
+          "name": "Description",
+          "description": "Note of the event. Without it the note stays as it is."
+        },
+        "external_id": {
+          "name": "External ID",
+          "description": "Your own stable ID (e.g. of the source). The same ID always means the same event."
+        }
+      }
+    },
+    "sync_events": {
+      "name": "Sync events",
+      "description": "Makes the events of one source in a period match the delivered list: creates new ones, changes differing ones and removes events of THIS source in the period that are no longer delivered. Other events are never touched.",
+      "fields": {
+        "source": {
+          "name": "Source",
+          "description": "Name of the source, e.g. \"waste\". Events of different sources never mix."
+        },
+        "events": {
+          "name": "Events",
+          "description": "List of events, each with external_id, summary, start and optionally end, description, category. start/end as in calendar.get_events: a date (all-day, end = the day after) or a date and time."
+        },
+        "start": {
+          "name": "Period start",
+          "description": "Date or date and time. Only events of the source starting in the period are removed."
+        },
+        "end": {
+          "name": "Period end",
+          "description": "Date (counts fully) or date and time."
+        },
+        "allow_empty": {
+          "name": "Allow an empty list",
+          "description": "An empty list removes every event of the source in the period. Off by default, because a source that is briefly unavailable often delivers nothing."
+        }
+      }
+    },
+    "add_item": {
+      "name": "Add item",
+      "description": "Adds an entry to an amZettel list, with amount, unit, category and note.",
+      "fields": {
+        "name": {
+          "name": "Name",
+          "description": "What to add, e.g. \"Milk\"."
+        },
+        "quantity": {
+          "name": "Quantity",
+          "description": "Amount (default 1). On a shopping list amZettel adds it to an open entry of the same name."
+        },
+        "unit": {
+          "name": "Unit",
+          "description": "e.g. \"L\", \"g\", \"pcs\"."
+        },
+        "category": {
+          "name": "Category",
+          "description": "Category of the entry (shopping lists: the list's categories)."
+        },
+        "note": {
+          "name": "Note",
+          "description": "Note of the entry."
+        }
+      }
+    },
+    "get_events": {
+      "name": "Get events",
+      "description": "Returns the events of an amZettel calendar in a period as data, series expanded.",
+      "fields": {
+        "start": {
+          "name": "Start",
+          "description": "Date or date and time (default: now)."
+        },
+        "end": {
+          "name": "End",
+          "description": "Date (counts fully) or date and time (default: seven days after the start)."
+        },
+        "category": {
+          "name": "Category",
+          "description": "Only events of this category (name or ID)."
+        }
+      }
+    },
+    "get_meals": {
+      "name": "Get meals",
+      "description": "Returns the meals of an amZettel meal plan in a period as data.",
+      "fields": {
+        "start": {
+          "name": "Start",
+          "description": "Date or date and time (default: now)."
+        },
+        "end": {
+          "name": "End",
+          "description": "Date (counts fully) or date and time (default: seven days after the start)."
+        }
+      }
+    },
+    "get_items": {
+      "name": "Get items",
+      "description": "Returns the entries of an amZettel list as data.",
+      "fields": {
+        "include_completed": {
+          "name": "Include completed",
+          "description": "Also completed entries (shopping lists: what was bought recently)."
+        }
+      }
+    }
+  }
+}

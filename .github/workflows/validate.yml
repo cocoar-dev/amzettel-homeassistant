@@ -1,0 +1,34 @@
+name: Validate
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  hassfest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: home-assistant/actions/hassfest@master
+
+  hacs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: hacs/action@main
+        with:
+          category: integration
+
+  pytest:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPYCACHEPREFIX: ${{ github.workspace }}/.local/cache/pycache
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv venv --python 3.14 .local/venv
+      - run: uv pip install --python .local/venv/bin/python -r requirements_test.txt
+      - run: .local/venv/bin/python -m pytest -q
