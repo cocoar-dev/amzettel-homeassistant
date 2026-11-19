@@ -32,3 +32,12 @@ jobs:
       - run: uv venv --python 3.14 .local/venv
       - run: uv pip install --python .local/venv/bin/python -r requirements_test.txt
       - run: .local/venv/bin/python -m pytest -q
+
+  dashboard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test examples/dashboard/tests/*.test.mjs

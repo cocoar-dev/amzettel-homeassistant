@@ -14,6 +14,7 @@ Kalender, Terminbearbeitung, geteilte Zettel und Essenspläne.
 | [Einrichtung und Bedienung](configuration.md) | Kalenderbilder, Termine verschieben, Free/Premium, Zettel, Essenspläne und Assist |
 | [Aktionen und Ereignisse](actions.md) | Aktionsfelder, Antworten, Synchronisation und Grenzen |
 | [Beispiele](examples.md) | Einkaufszettel, Kalenderimport, Müll-Erinnerung, Essensplan und Node-RED |
+| [Haushalts-Dashboard zum Nachbauen](../../examples/dashboard/README.de.md) | Optionale Dashboard-Karte, deutsche/englische Oberfläche, Theme und fertiges YAML |
 | [Fehlerhilfe](troubleshooting.md) | Anmeldung, Rechte, fehlende Objekte, Zeitzonen und Diagnose |
 | [Release-Notizen](release-notes.md) | Versionierte Änderungen, Funktionsumfang und bekannte Einschränkungen |
 

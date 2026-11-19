@@ -9,6 +9,16 @@ on your dashboard, through Assist, or as building blocks for automations and Nod
 The integration connects to `app.amzettel.at` over REST/SSE v1.
 Changes arrive via SSE; HA catches up after a disconnect.
 
+## A dashboard to make your own
+
+![Optional household dashboard with English controls and German example data](examples/dashboard/preview.png)
+
+Three days of plans, meals and an interactive shopping list in one view.
+The **[optional dashboard template](examples/dashboard/README.md)** includes
+English/German controls and copyable YAML. Use your own three entity IDs and
+household name; no additional community cards are required.
+Your amZettel content keeps its original language. The preview uses fictional data.
+
 ## Get started
 
 1. Have **Home Assistant 2026.10.0 or newer** and an amZettel account ready.
@@ -75,7 +85,13 @@ PYTHONPYCACHEPREFIX="$PWD/.local/cache/pycache" .local/venv/bin/python -m pytest
 Git ignores all of `.local/`. Keep local environments, caches and internal working
 documents there; they belong neither in the repository nor in HA.
 
-CI checks pytest, hassfest and HACS. Icons and logos are bundled locally:
+The optional dashboard tests use Node.js 22 or later:
+
+```sh
+node --test examples/dashboard/tests/*.test.mjs
+```
+
+CI checks pytest, dashboard tests, hassfest and HACS. Icons and logos are bundled locally:
 [image provenance and validation](docs/branding.md).
 
 ## License and security

@@ -1,0 +1,16 @@
+# Paste into a NEW dashboard's raw configuration editor.
+# Replace these three example entity IDs with your own.
+title: amZettel
+views:
+  - title: Home
+    path: home
+    icon: mdi:home-heart
+    panel: true
+    theme: amZettelHousehold
+    cards:
+      - type: custom:amzettel-household-card
+        language: en
+        household: ""
+        calendar: calendar.household
+        meals: calendar.meal_plan
+        shopping: todo.shopping
