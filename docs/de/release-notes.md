@@ -4,7 +4,15 @@
 
 [Dokumentationsübersicht](README.md)
 
-## 0.1.0
+Die Release-Notizen sind nach Version geordnet; der neueste Release steht oben.
+Jeder Eintrag beschreibt sichtbare Funktionen, Fehlerkorrekturen, inkompatible Änderungen
+und bekannte Grenzen. Die Versionierung folgt Semantic Versioning: Patch-Versionen
+beheben Fehler, Minor-Versionen ergänzen kompatible Funktionen und Major-Versionen
+kennzeichnen inkompatible Änderungen.
+
+## 1.0.0
+
+Erster stabiler Release der amZettel-Integration für Home Assistant.
 
 ### Funktionsumfang
 
@@ -21,6 +29,8 @@
   geschwärzte Kontobezeichnung in Diagnosen.
 - Deutsche und englische Anleitungen mit echten Installations-, amZettel-Anmelde-,
   Gerätefreigabe- und Kalenderaufnahmen mit eigens angelegten Demokonten auf Produktion.
+- Installation über Marketplace ab HA 2026.11, HACS bei HA 2026.10 oder manuelles Kopieren.
+  Vorhandene HACS-Installationen wechseln mit ihrem Custom Repository zu Marketplace.
 
 ### Bekannte Grenzen
 
@@ -36,6 +46,6 @@
 
 ### Installation und Bedienung
 
-Die [Installationsanleitung](installation.md) beschreibt das manuelle Kopieren und die
+Die [Installationsanleitung](installation.md) beschreibt Marketplace, HACS, manuelles Kopieren und die
 vollständige Anmeldung. Die [Bedienung](configuration.md) zeigt das Verschieben eines Termins,
 geteilte Zettel, den Free-/Premium-Unterschied und ganztägige Demomahlzeiten.

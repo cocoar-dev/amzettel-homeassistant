@@ -48,6 +48,7 @@ Essenspläne sind in dieser Integration auch mit Premium nur lesend.
   Essensplan und Node-RED.
 - **[Fehlerhilfe](docs/de/troubleshooting.md):** Integration fehlt, Anmeldung abgelaufen, Rechte,
   Verbindungsprobleme und Diagnose.
+- **[Release-Notizen](docs/de/release-notes.md):** versionierte Änderungen und bekannte Grenzen.
 
 ## Aktionen
 

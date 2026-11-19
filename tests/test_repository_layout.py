@@ -52,6 +52,15 @@ def test_development_tools_use_the_local_workspace():
     ]
 
 
+def test_release_versions_match_project_manifest_and_both_changelogs():
+    project = tomllib.loads((ROOT / "pyproject.toml").read_text())["project"]
+    manifest = json.loads((ROOT / "custom_components" / "amzettel" / "manifest.json").read_text())
+    version = project["version"]
+    assert manifest["version"] == version
+    for directory in (ROOT / "docs", ROOT / "docs" / "de"):
+        assert f"## {version}\n" in (directory / "release-notes.md").read_text()
+
+
 def test_license_metadata_covers_code_and_separate_brand_assets():
     project = tomllib.loads((ROOT / "pyproject.toml").read_text())["project"]
     assert project["license"] == "MIT AND LicenseRef-amZettel-Brand-Assets"

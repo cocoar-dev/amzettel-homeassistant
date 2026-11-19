@@ -15,7 +15,7 @@ Kalender, Terminbearbeitung, geteilte Zettel und Essenspläne.
 | [Aktionen und Ereignisse](actions.md) | Aktionsfelder, Antworten, Synchronisation und Grenzen |
 | [Beispiele](examples.md) | Einkaufszettel, Kalenderimport, Müll-Erinnerung, Essensplan und Node-RED |
 | [Fehlerhilfe](troubleshooting.md) | Anmeldung, Rechte, fehlende Objekte, Zeitzonen und Diagnose |
-| [Release-Notizen](release-notes.md) | Funktionsumfang und bekannte Einschränkungen |
+| [Release-Notizen](release-notes.md) | Versionierte Änderungen, Funktionsumfang und bekannte Einschränkungen |
 
 ## So sieht die amZettel-Anmeldung aus
 
@@ -38,6 +38,8 @@ sind abgedeckt; E-Mail-Codefelder sind leer. Die englische Anleitung zeigt diese
 Schritte mit englischer Oberfläche, die Demoobjekte behalten ihre deutschen Namen.
 Das Marketplace-Bild entstand mit HA 2026.11.2 und wird in beiden Anleitungen
 mit seiner ursprünglichen deutschen Oberfläche gezeigt.
+Versionsangaben in Bildern beschreiben den Aufnahmestand, nicht den aktuellen Release.
+Die Bilder werden bei geänderten Abläufen aktualisiert, nicht für jeden Release.
 
 ## Für Maintainer
 

@@ -4,7 +4,14 @@
 
 [Documentation overview](README.md)
 
-## 0.1.0
+Release notes are listed with the newest release first.
+Each entry records user-visible features, fixes, breaking changes and known limitations.
+Versions follow semantic versioning: patches fix bugs, minor releases add compatible
+features, and major releases identify incompatible changes.
+
+## 1.0.0
+
+First stable release of the amZettel Home Assistant integration.
 
 ### Features
 
@@ -21,6 +28,8 @@
   a redacted account label in diagnostics.
 - German and English guides with genuine installation, amZettel sign-in,
   device-approval and calendar screenshots using dedicated demo accounts on production.
+- Installation through Marketplace on HA 2026.11+, HACS on HA 2026.10, or manual copying.
+  Existing HACS installations migrate to Marketplace with their custom repository.
 
 ### Known limitations
 
@@ -36,6 +45,6 @@
 
 ### Installation and use
 
-The [installation guide](installation.md) covers manual copying and the complete sign-in flow.
+The [installation guide](installation.md) covers Marketplace, HACS, manual copying and the complete sign-in flow.
 The [usage guide](configuration.md) illustrates moving an event, shared lists,
 the Free/Premium difference and all-day demo meals.

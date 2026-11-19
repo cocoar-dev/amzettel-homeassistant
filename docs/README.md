@@ -15,7 +15,7 @@ event editing, shared lists and meal plans.
 | [Actions and events](actions.md) | Action fields, responses, synchronization and limitations |
 | [Examples](examples.md) | Shopping lists, calendar imports, waste reminders, meal plans and Node-RED |
 | [Troubleshooting](troubleshooting.md) | Sign-in, permissions, missing objects, time zones and diagnostics |
-| [Release notes](release-notes.md) | Features and known limitations |
+| [Release notes](release-notes.md) | Versioned changes, features and known limitations |
 
 ## The amZettel sign-in page
 
@@ -38,6 +38,8 @@ and access codes are covered; e-mail-code fields are empty. Both languages show 
 same steps in their respective interface language; demo objects keep their German names.
 The Marketplace screenshot was captured with HA 2026.11.2 and is shared by both guides
 in its original German interface.
+Version labels in screenshots describe the capture environment, not the current release.
+Screenshots are updated when the illustrated steps change, not for every release.
 
 ## For maintainers
 

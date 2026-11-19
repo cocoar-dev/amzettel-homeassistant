@@ -1,6 +1,6 @@
 [project]
 name = "amzettel-homeassistant"
-version = "0.1.0"
+version = "1.0.0"
 description = "Home Assistant custom integration for amZettel"
 requires-python = ">=3.14"
 readme = "README.md"

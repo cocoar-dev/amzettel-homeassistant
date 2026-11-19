@@ -47,6 +47,7 @@ Meal plans are read-only in this integration, even with Premium.
   waste-collection reminders, meal plans and Node-RED.
 - **[Troubleshooting](docs/troubleshooting.md):** missing integration, expired sign-in,
   permissions, connectivity and diagnostics.
+- **[Release notes](docs/release-notes.md):** versioned changes and known limitations.
 
 ## Actions
 
