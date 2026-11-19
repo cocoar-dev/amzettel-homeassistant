@@ -12,9 +12,10 @@ Changes arrive via SSE; HA catches up after a disconnect.
 ## Get started
 
 1. Have **Home Assistant 2026.10.0 or newer** and an amZettel account ready.
-2. [Install the integration](docs/installation.md) through HACS/Marketplace or manually.
-3. Restart Home Assistant, then go to **Settings → Devices & services → Add integration**
-   and search for **amZettel**.
+2. [Install the integration](docs/installation.md) through **Marketplace** on HA 2026.11+,
+   **HACS** on HA 2026.10, or manually.
+3. If setup does not open automatically, go to **Settings → Devices & services → Add integration**
+   and search for **amZettel**. Follow any HA restart prompt first.
 4. Open the displayed link, approve the code using your amZettel account, and select
    which lists, calendars and meal plans should appear.
 
@@ -36,7 +37,7 @@ Meal plans are read-only in this integration, even with Premium.
 
 ## Guides
 
-- **[Installation](docs/installation.md):** requirements, HACS/Marketplace, manual copying,
+- **[Installation](docs/installation.md):** requirements, Marketplace/HACS, manual copying,
   the illustrated device-code, amZettel sign-in and access-approval flow through to the completed connection,
   updates and removal.
 - **[Configuration and use](docs/configuration.md):** permissions, selection, category calendars,

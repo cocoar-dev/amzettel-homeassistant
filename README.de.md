@@ -12,9 +12,11 @@ Die Integration verbindet sich über REST/SSE v1 mit `app.amzettel.at`.
 ## Loslegen
 
 1. **Home Assistant ab 2026.10.0** und ein amZettel-Konto bereithalten.
-2. Die [Integration installieren](docs/de/installation.md), über HACS/Marketplace oder manuell.
-3. Home Assistant neu starten und unter **Einstellungen → Geräte & Dienste → Integration hinzufügen**
-   nach **amZettel** suchen.
+2. Die [Integration installieren](docs/de/installation.md): über **Marketplace** ab HA 2026.11,
+   **HACS** bei HA 2026.10 oder manuell.
+3. Falls die Einrichtung nicht automatisch startet, unter
+   **Einstellungen → Geräte & Dienste → Integration hinzufügen** nach **amZettel** suchen.
+   Einer gegebenenfalls angezeigten Aufforderung zum HA-Neustart vorher folgen.
 4. Den angezeigten Link öffnen, den Code mit dem amZettel-Konto bestätigen und auswählen,
    welche Zettel, Kalender und Essenspläne erscheinen sollen.
 
@@ -36,7 +38,7 @@ Essenspläne sind in dieser Integration auch mit Premium nur lesend.
 
 ## Anleitungen
 
-- **[Installation](docs/de/installation.md):** Voraussetzungen, HACS/Marketplace, manuelles Kopieren,
+- **[Installation](docs/de/installation.md):** Voraussetzungen, Marketplace/HACS, manuelles Kopieren,
   vollständige Bildfolge von Device-Code über amZettel-Anmeldung und Zugriffsfreigabe bis zur fertigen
   Verbindung, Updates und Entfernen.
 - **[Einrichtung und Bedienung](docs/de/configuration.md):** Rechte, Auswahl, Kategorie-Kalender,

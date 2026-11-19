@@ -43,6 +43,11 @@ Die Tests in `tests/test_brand.py` prüfen Größen sowie das tatsächliche Ausl
 HAs lokale Brands-API einschließlich der Dark-/HiDPI-Fallbacks.
 Die HACS-CI überspringt die Brands-Prüfung nicht mehr.
 
+HACS 2.0.5 lädt die Icons seiner Repository-Liste noch vom alten zentralen CDN.
+Deshalb kann dort trotz korrekt installierter lokaler Bilder ein Platzhalter erscheinen.
+Das ist kein Fehler der Integration. Marketplace ab HA 2026.11 verwendet die lokalen
+Bilder korrekt; siehe [Installation](installation.md#marketplace).
+
 Für die Kontrolle in einer laufenden HA-Instanz:
 
 1. Nach Installation der Bilder **HA neu starten**, damit die Integrationsmetadaten neu eingelesen werden.

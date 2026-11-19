@@ -4,7 +4,7 @@
 
 [Documentation overview](README.md)
 
-**Steps:** [Requirements](#requirements) → [Install](#manual-installation) →
+**Steps:** [Requirements](#requirements) → [Install](#installation) →
 [Connect to amZettel](#set-up-the-connection) → [Verify](#check-the-connection-in-practice).
 
 ## Requirements
@@ -14,31 +14,77 @@
   editing calendar events requires Premium.
 - Home Assistant and your browser can reach the amZettel server and its sign-in service.
 - Administrator access to Home Assistant to install an integration.
-- For installation through HACS/Marketplace: access to its repository management.
+- For installation through Marketplace/HACS: access to its repository management.
 
 This is a **custom integration**, not an add-on. It runs inside Home Assistant;
 you do not need an additional amZettel container. Manual installation works with
 Home Assistant Container as well as Home Assistant OS.
 
-## Install with HACS
+## Installation
 
-For HA 2026.10 with HACS already configured:
+Choose the route for your Home Assistant version:
+
+| HA version | Installation route |
+|---|---|
+| **2026.11 or newer** | [Marketplace](#marketplace), built in and recommended |
+| **2026.10** | [HACS](#install-with-hacs), installed separately |
+| **2026.10 or newer** | [Manual installation](#manual-installation), if preferred |
+
+Marketplace and HACS install the same integration. Neither route requires inclusion in
+the official catalog: you can add the GitHub repository yourself.
+Community integrations are not reviewed or supported by the Home Assistant project.
+
+### Marketplace
+
+On **HA 2026.11 or newer**, Marketplace replaces HACS and is already included in HA.
+Do not install HACS separately.
+
+1. Open **Settings → Marketplace**.
+2. On first use, read and acknowledge the warning about community content.
+3. Choose **Add from link** and connect GitHub if prompted. HA displays a device code
+   and a GitHub link: open the link, enter that code if needed and approve the connection.
+   Return to HA when GitHub confirms success.
+4. Under **GitHub link**, enter
+   `https://github.com/cocoar-dev/amzettel-homeassistant` and choose **Add**.
+   If asked for a content type, select **Integration** and choose **Add** again.
+5. Open **amZettel**, choose **Install**, review the offered version and confirm **Install**.
+6. Marketplace opens the amZettel setup dialog when installation completes. Continue with
+   [server and permissions](#2-choose-the-server-and-permissions).
+   If HA asks for a restart, restart it first. If the dialog does not open, use
+   **Settings → Devices & services → Add integration → amZettel**.
+
+> [!NOTE]
+> The GitHub connection lets Marketplace download and update the custom repository.
+> It does **not** sign you in to amZettel. The amZettel device code and account approval
+> described below belong to a separate connection.
+
+The installed integration in Marketplace on HA 2026.11.2 (cropped view):
+
+![amZettel installed in Marketplace, with the green icon and installation status; cropped German interface](screenshots/marketplace.png)
+
+This genuine screenshot uses the German interface; **Installiert** means **Installed**.
+
+### Install with HACS
+
+For **HA 2026.10** with HACS already configured:
 
 1. Open **HACS**.
 2. Under **⋮ → Custom repositories**, enter
    `https://github.com/cocoar-dev/amzettel-homeassistant`.
 3. Select **Integration** as the type and add it.
-4. Search for **amZettel**, choose a version and download it.
+4. Search for **amZettel** and download the offered version.
 5. **Restart Home Assistant**, not just the browser page.
 6. Then [set up the connection](#set-up-the-connection).
 
-Starting with HA 2026.11, HACS is built in as the **Marketplace**. Labels and the route to the
-repository menu may therefore differ from the HACS interface described above.
-In that case, follow the [official Marketplace/HACS instructions][hacs].
-You still need to configure the integration under **Devices & services** after installing it.
+For a placeholder icon in the HACS list, see the [brand image notes](branding.md#integration-and-validation).
 
-A custom repository is not the same as a listing in the official catalog.
-This installation method does not require inclusion in the official catalog.
+### Upgrading from HACS
+
+When you upgrade HA to **2026.11 or newer**, Marketplace automatically takes over from HACS.
+Installed content, custom repositories and update entities are retained; HACS itself is removed.
+Open **Settings → Marketplace** afterwards. You do not need to uninstall amZettel,
+copy its files again or recreate its connection.
+See the [official HACS migration guide][migration] for other changes.
 
 ## Manual installation
 
@@ -95,6 +141,7 @@ Demo object names stay German; the interface is English.
 ### 1. Find the integration
 
 Open **Settings → Devices & services → Add integration**, search for **amZettel** and select it.
+If Marketplace has already opened the setup dialog, continue with step 2 instead.
 If it is missing, check the [installation path](#manual-installation) and restart HA completely.
 
 ![Find amZettel in the integration picker](screenshots/add-integration.png)
@@ -215,12 +262,12 @@ Continue with [automation examples](examples.md) or [troubleshooting](troublesho
 
 ## Updates
 
-- **HACS/Marketplace:** install the offered update and restart HA.
+- **Marketplace/HACS:** install the offered update and restart HA.
 - **Manual:** create a backup, replace the integration folder with the new version, and restart HA.
   Do not replace the rest of the HA configuration directory.
 - Normal updates preserve your selection and sign-in. If HA asks you to sign in again,
   follow the displayed flow.
-- Do not manage updates through both HACS and manual copying at the same time.
+- Do not combine Marketplace/HACS updates with manual copying.
 
 ## Change permissions
 
@@ -245,7 +292,7 @@ Signing in again after revocation is different from removing the integration.
   if you no longer want the connection.
 - **Remove it from HA:** delete the relevant entry under **Settings → Devices & services → amZettel**.
   The integration attempts to revoke its refresh token.
-- **Uninstall completely:** first remove the entry, then uninstall through HACS or delete
+- **Uninstall completely:** first remove the entry, then uninstall through Marketplace/HACS or delete
   `/config/custom_components/amzettel`, and restart HA.
 
 This does **not** delete lists, events or meal plans in amZettel.
@@ -254,9 +301,11 @@ Update any automations that reference removed HA entities yourself.
 ## Official references
 
 - [Custom HACS repositories][custom]
-- [Marketplace and HACS][hacs]
+- [Marketplace installation and custom repositories][marketplace]
+- [Moving from HACS to Marketplace][migration]
 - [HA integration file structure][structure]
 
 [custom]: https://www.hacs.xyz/docs/faq/custom_repositories/
-[hacs]: https://www.hacs.xyz/
+[marketplace]: https://www.home-assistant.io/integrations/marketplace/
+[migration]: https://www.hacs.xyz/docs/marketplace/
 [structure]: https://developers.home-assistant.io/docs/creating_integration_file_structure/

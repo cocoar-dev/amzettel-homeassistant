@@ -10,7 +10,7 @@ event editing, shared lists and meal plans.
 
 | Chapter | Contents |
 |---|---|
-| [Installation and connection](installation.md) | HACS/Marketplace, manual installation, amZettel sign-in, access approval, selection and removal |
+| [Installation and connection](installation.md) | Marketplace from HA 2026.11, HACS on HA 2026.10, manual installation, amZettel sign-in, access approval, selection and removal |
 | [Configuration and use](configuration.md) | Calendar screenshots, moving events, Free/Premium, lists, meal plans and Assist |
 | [Actions and events](actions.md) | Action fields, responses, synchronization and limitations |
 | [Examples](examples.md) | Shopping lists, calendar imports, waste reminders, meal plans and Node-RED |
@@ -32,10 +32,12 @@ calendar, event details, editing and the saved result.
 
 ![HA calendar week with the WG calendar and meal plan](screenshots/calendar-week.png)
 
-The screenshots were taken on November 18, 2026 using HA 2026.10.4, the official
+The connection and usage screenshots were taken on November 18, 2026 using HA 2026.10.4, the official
 amZettel servers, dedicated demo accounts and demo objects. Addresses, account titles
 and access codes are covered; e-mail-code fields are empty. Both languages show the
 same steps in their respective interface language; demo objects keep their German names.
+The Marketplace screenshot was captured with HA 2026.11.2 and is shared by both guides
+in its original German interface.
 
 ## For maintainers
 

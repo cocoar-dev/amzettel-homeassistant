@@ -4,7 +4,7 @@
 
 [Dokumentationsübersicht](README.md)
 
-**Ablauf:** [Voraussetzungen](#voraussetzungen) → [Installation](#manuell-installieren) →
+**Ablauf:** [Voraussetzungen](#voraussetzungen) → [Installation](#installation) →
 [Mit amZettel verbinden](#verbindung-einrichten) → [Funktion prüfen](#nach-dem-verbinden-praktisch-prüfen).
 
 ## Voraussetzungen
@@ -14,31 +14,76 @@
   zum Ändern von Kalenderterminen ist Premium nötig.
 - Home Assistant und dein Browser erreichen den amZettel-Server und dessen Anmeldedienst.
 - Administratorrechte in Home Assistant, um eine Integration zu installieren.
-- Für die Installation über HACS/Marketplace: Zugriff auf dessen Repository-Verwaltung.
+- Für die Installation über Marketplace/HACS: Zugriff auf dessen Repository-Verwaltung.
 
 Die Integration ist eine **Custom-Integration**, kein Add-on. Sie läuft innerhalb von Home Assistant;
 ein zusätzlicher amZettel-Container ist nicht nötig. Für Home Assistant Container ist der manuelle
 Installationsweg genauso möglich wie für Home Assistant OS.
 
-## Über HACS installieren
+## Installation
 
-Für HA 2026.10 mit eingerichteten HACS:
+Wähle den passenden Weg für deine Home-Assistant-Version:
+
+| HA-Version | Installationsweg |
+|---|---|
+| **Ab 2026.11** | [Marketplace](#marketplace), eingebaut und empfohlen |
+| **2026.10** | [HACS](#über-hacs-installieren), separat installiert |
+| **Ab 2026.10** | [Manuell installieren](#manuell-installieren), falls gewünscht |
+
+Marketplace und HACS installieren dieselbe Integration. Beide Wege setzen keine Aufnahme
+in den offiziellen Katalog voraus: Du kannst das GitHub-Repository selbst hinzufügen.
+Community-Integrationen werden vom Home-Assistant-Projekt weder geprüft noch unterstützt.
+
+### Marketplace
+
+Ab **HA 2026.11** ersetzt Marketplace HACS und ist bereits in HA enthalten.
+Installiere HACS nicht zusätzlich.
+
+1. **Einstellungen → Marketplace** öffnen.
+2. Beim ersten Öffnen den Hinweis zu Community-Inhalten lesen und bestätigen.
+3. **Über Link hinzufügen** wählen und GitHub verbinden, falls HA dazu auffordert.
+   HA zeigt einen Gerätecode und einen GitHub-Link: Link öffnen, den Code bei Bedarf eingeben
+   und die Verbindung freigeben. Nach der Erfolgsbestätigung von GitHub zu HA zurückkehren.
+4. Unter **GitHub-Link** die Adresse
+   `https://github.com/cocoar-dev/amzettel-homeassistant` eintragen und **Hinzufügen** wählen.
+   Falls HA nach dem Inhaltstyp fragt, **Integration** auswählen und erneut **Hinzufügen** wählen.
+5. **amZettel** öffnen, **Installieren** wählen, die angebotene Version prüfen
+   und die Installation mit **Installieren** bestätigen.
+6. Nach der Installation öffnet Marketplace den amZettel-Einrichtungsdialog.
+   Mit [Server und Rechte wählen](#2-server-und-rechte-wählen) fortfahren.
+   Fordert HA einen Neustart, diesen zuerst durchführen. Öffnet sich der Dialog nicht,
+   **Einstellungen → Geräte & Dienste → Integration hinzufügen → amZettel** verwenden.
+
+> [!NOTE]
+> Die GitHub-Verbindung erlaubt Marketplace, das Custom Repository herunterzuladen und
+> zu aktualisieren. Sie meldet dich **nicht** bei amZettel an. Der weiter unten gezeigte
+> amZettel-Device-Code und die Kontofreigabe gehören zu einer eigenen Verbindung.
+
+Die installierte Integration im Marketplace von HA 2026.11.2 (Ausschnitt):
+
+![amZettel im Marketplace mit grünem Icon und Installationsstatus, kompakter Ausschnitt](screenshots/marketplace.png)
+
+### Über HACS installieren
+
+Für **HA 2026.10** mit eingerichtetem HACS:
 
 1. **HACS** öffnen.
 2. Im Menü **⋮ → Benutzerdefinierte Repositories / Custom repositories** die Adresse
    `https://github.com/cocoar-dev/amzettel-homeassistant` eintragen.
 3. Als Typ **Integration** wählen und hinzufügen.
-4. **amZettel** suchen, die Version auswählen und herunterladen.
+4. **amZettel** suchen und die angebotene Version herunterladen.
 5. **Home Assistant neu starten**, nicht nur die Seite im Browser.
 6. Anschließend [die Verbindung einrichten](#verbindung-einrichten).
 
-Ab HA 2026.11 ist HACS als **Marketplace** eingebaut. Die Bezeichnungen und der Zugang zum
-Repository-Menü können deshalb von der oben beschriebenen HACS-Oberfläche abweichen.
-Folge in diesem Fall den [offiziellen Marketplace-/HACS-Hinweisen][hacs].
-Die Integration muss nach der Installation weiterhin in **Geräte & Dienste** eingerichtet werden.
+Bei einem Platzhalter-Icon in der HACS-Liste helfen die [Brand-Bild-Hinweise](branding.md#einbindung-und-prüfung).
 
-Ein benutzerdefiniertes Repository ist nicht dasselbe wie ein Eintrag im offiziellen Katalog.
-Dieser Installationsweg setzt keine Aufnahme in den offiziellen Katalog voraus.
+### Von HACS umsteigen
+
+Beim HA-Update auf **2026.11 oder neuer** übernimmt Marketplace automatisch von HACS.
+Installierte Inhalte, Custom Repositories und Update-Entitäten bleiben erhalten; HACS selbst
+wird entfernt. Öffne danach **Einstellungen → Marketplace**. Du musst amZettel weder
+deinstallieren noch seine Dateien neu kopieren oder die Verbindung erneut einrichten.
+Weitere Änderungen beschreibt die [offizielle HACS-Migrationsanleitung][migration].
 
 ## Manuell installieren
 
@@ -98,6 +143,7 @@ Konto-Adressen, Zugangscodes und vollständige Device-Links sind geschwärzt.
 **Einstellungen → Geräte & Dienste → Integration hinzufügen** öffnen, nach **amZettel**
 suchen und den Treffer auswählen. Fehlt er, zuerst den [Installationspfad](#manuell-installieren)
 und den vollständigen HA-Neustart prüfen.
+Hat Marketplace den Einrichtungsdialog bereits geöffnet, direkt mit Schritt 2 fortfahren.
 
 ![amZettel in der Liste der Integrationen finden](screenshots/add-integration.png)
 
@@ -216,12 +262,12 @@ Weitere Beispiele stehen unter [Automationen](examples.md) und [Fehlerhilfe](tro
 
 ## Aktualisieren
 
-- **HACS/Marketplace:** angebotene Aktualisierung installieren und anschließend HA neu starten.
+- **Marketplace/HACS:** angebotene Aktualisierung installieren und anschließend HA neu starten.
 - **Manuell:** Backup erstellen, den Integrationsordner durch die neue Version ersetzen und HA
   neu starten. Nicht den restlichen HA-Konfigurationsordner ersetzen.
 - Auswahl und Anmeldung bleiben bei normalen Updates erhalten. Fordert HA eine Neuanmeldung,
   folge dem angezeigten Dialog.
-- Keine Updates gleichzeitig über HACS und manuelles Kopieren verwalten.
+- Marketplace-/HACS-Updates nicht mit manuellem Kopieren mischen.
 
 ## Rechte ändern
 
@@ -247,7 +293,7 @@ Eine bloße Neuanmeldung nach einem Widerruf ist dagegen kein Entfernen der Inte
   Verbindung nicht mehr möchtest.
 - **Aus HA entfernen:** Bei **Einstellungen → Geräte & Dienste → amZettel** den betreffenden
   Eintrag löschen. Die Integration versucht dabei, ihren Refresh-Token zu widerrufen.
-- **Vollständig deinstallieren:** Zuerst den Eintrag entfernen, danach über HACS deinstallieren
+- **Vollständig deinstallieren:** Zuerst den Eintrag entfernen, danach über Marketplace/HACS deinstallieren
   oder den Ordner `/config/custom_components/amzettel` löschen und HA neu starten.
 
 Zettel, Termine und Essenspläne in amZettel werden dadurch **nicht** gelöscht. Automationen mit
@@ -256,9 +302,11 @@ entfernten HA-Entitäten musst du selbst anpassen.
 ## Offizielle Hinweise
 
 - [Benutzerdefinierte HACS-Repositories][custom]
-- [Marketplace und HACS][hacs]
+- [Marketplace-Installation und Custom Repositories][marketplace]
+- [Von HACS zu Marketplace wechseln][migration]
 - [Dateistruktur von HA-Integrationen][structure]
 
 [custom]: https://www.hacs.xyz/docs/faq/custom_repositories/
-[hacs]: https://www.hacs.xyz/
+[marketplace]: https://www.home-assistant.io/integrations/marketplace/
+[migration]: https://www.hacs.xyz/docs/marketplace/
 [structure]: https://developers.home-assistant.io/docs/creating_integration_file_structure/

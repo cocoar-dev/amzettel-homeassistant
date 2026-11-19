@@ -10,7 +10,7 @@ Kalender, Terminbearbeitung, geteilte Zettel und Essenspläne.
 
 | Kapitel | Inhalt |
 |---|---|
-| [Installation und Verbindung](installation.md) | HACS/Marketplace, manuelles Installieren, amZettel-Anmeldung, Zugriffsfreigabe, Auswahl und Entfernen |
+| [Installation und Verbindung](installation.md) | Marketplace ab HA 2026.11, HACS bei HA 2026.10, manuelles Installieren, amZettel-Anmeldung, Zugriffsfreigabe, Auswahl und Entfernen |
 | [Einrichtung und Bedienung](configuration.md) | Kalenderbilder, Termine verschieben, Free/Premium, Zettel, Essenspläne und Assist |
 | [Aktionen und Ereignisse](actions.md) | Aktionsfelder, Antworten, Synchronisation und Grenzen |
 | [Beispiele](examples.md) | Einkaufszettel, Kalenderimport, Müll-Erinnerung, Essensplan und Node-RED |
@@ -32,10 +32,12 @@ zeigt diesen Kalender, die Termindetails, das Verschieben und das gespeicherte E
 
 ![HA-Kalenderwoche mit WG-Kalender und Essensplan](screenshots/calendar-week.png)
 
-Die Bilder stammen vom 18. November 2026: HA 2026.10.4, offizielle amZettel-Server,
+Die Bilder von Verbindung und Bedienung stammen vom 18. November 2026: HA 2026.10.4, offizielle amZettel-Server,
 eigens angelegte Demokonten und Demoobjekte. Adressen, Kontotitel und Zugangscodes
 sind abgedeckt; E-Mail-Codefelder sind leer. Die englische Anleitung zeigt dieselben
 Schritte mit englischer Oberfläche, die Demoobjekte behalten ihre deutschen Namen.
+Das Marketplace-Bild entstand mit HA 2026.11.2 und wird in beiden Anleitungen
+mit seiner ursprünglichen deutschen Oberfläche gezeigt.
 
 ## Für Maintainer
 

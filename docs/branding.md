@@ -43,6 +43,11 @@ The tests in `tests/test_brand.py` check image sizes and actual delivery through
 local Brands API, including dark/HiDPI fallbacks.
 The HACS CI no longer skips brand validation.
 
+HACS 2.0.5 still loads repository-list icons from the old central CDN and may show
+an “icon not available” placeholder despite correctly installed local images.
+This does not indicate a broken integration. Marketplace on HA 2026.11+ uses the
+local images correctly; see [installation](installation.md#marketplace).
+
 To check the images in a running HA instance:
 
 1. After installing the images, **restart HA** so integration metadata is reloaded.
