@@ -1,0 +1,16 @@
+# In den Rohkonfigurationseditor eines NEUEN Dashboards einfügen.
+# Die drei beispielhaften Entitäts-IDs durch die eigenen ersetzen.
+title: amZettel
+views:
+  - title: Zuhause
+    path: home
+    icon: mdi:home-heart
+    panel: true
+    theme: amZettelHousehold
+    cards:
+      - type: custom:amzettel-household-card
+        language: de
+        household: ""
+        calendar: calendar.household
+        meals: calendar.meal_plan
+        shopping: todo.shopping

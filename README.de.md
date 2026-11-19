@@ -9,6 +9,16 @@ im Dashboard, über Assist oder als Bausteine für Automationen und Node-RED.
 Die Integration verbindet sich über REST/SSE v1 mit `app.amzettel.at`.
 Änderungen kommen per SSE; nach einer Unterbrechung holt HA sie nach.
 
+## Ein Dashboard zum Nachbauen
+
+![Optionale Haushaltsübersicht mit deutscher Oberfläche und deutschen Beispieldaten](examples/dashboard/preview.de.png)
+
+Drei Tage mit Terminen, Essensplan und bedienbarem Einkaufszettel in einer Ansicht.
+Die **[optionale Dashboard-Vorlage](examples/dashboard/README.de.md)** enthält
+eine deutsche/englische Oberfläche und fertiges YAML. Die eigenen drei Entitäts-IDs
+und den Haushaltsnamen einsetzen; zusätzliche Community-Karten sind nicht nötig.
+amZettel-Inhalte behalten ihre Sprache. Die Vorschau zeigt fiktive Daten.
+
 ## Loslegen
 
 1. **Home Assistant ab 2026.10.0** und ein amZettel-Konto bereithalten.
@@ -76,7 +86,13 @@ PYTHONPYCACHEPREFIX="$PWD/.local/cache/pycache" .local/venv/bin/python -m pytest
 `.local/` ist vollständig von Git ausgeschlossen. Dort bleiben lokale Umgebungen,
 Caches und interne Arbeitsunterlagen; sie gehören weder ins Repository noch nach HA.
 
-Die CI prüft pytest, hassfest und HACS. Icon und Logo werden lokal mitgeliefert:
+Die optionalen Dashboard-Tests verwenden Node.js ab Version 22:
+
+```sh
+node --test examples/dashboard/tests/*.test.mjs
+```
+
+Die CI prüft pytest, Dashboard-Tests, hassfest und HACS. Icon und Logo werden lokal mitgeliefert:
 [Herkunft und Prüfung der Bilder](docs/de/branding.md).
 
 ## Lizenz und Sicherheit

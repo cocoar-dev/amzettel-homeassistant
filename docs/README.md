@@ -14,6 +14,7 @@ event editing, shared lists and meal plans.
 | [Configuration and use](configuration.md) | Calendar screenshots, moving events, Free/Premium, lists, meal plans and Assist |
 | [Actions and events](actions.md) | Action fields, responses, synchronization and limitations |
 | [Examples](examples.md) | Shopping lists, calendar imports, waste reminders, meal plans and Node-RED |
+| [Household dashboard template](../examples/dashboard/README.md) | Optional dashboard card, English/German interface, theme and copyable YAML |
 | [Troubleshooting](troubleshooting.md) | Sign-in, permissions, missing objects, time zones and diagnostics |
 | [Release notes](release-notes.md) | Versioned changes, features and known limitations |
 

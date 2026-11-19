@@ -1,0 +1,11 @@
+amZettelHousehold:
+  primary-color: "#238361"
+  accent-color: "#238361"
+  primary-background-color: "#f7f8f3"
+  secondary-background-color: "#f7f8f3"
+  lovelace-background: "#f7f8f3"
+  app-header-background-color: "#f7f8f3"
+  app-header-text-color: "#425d4e"
+  card-background-color: "#fffefa"
+  primary-text-color: "#243d35"
+  ha-card-border-radius: "20px"
